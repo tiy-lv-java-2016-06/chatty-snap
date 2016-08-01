@@ -1,5 +1,7 @@
 package com.theironyard.entities;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 
 /**
@@ -20,6 +22,14 @@ public class Photo {
 
     @Column(nullable = false)
     String filename;
+
+    @Column(nullable = false)
+    @ColumnDefault("false")
+    private boolean publicPhoto;
+
+    @Column(nullable = false)
+    @ColumnDefault("10")
+    private int sleepTime;
 
     public Photo() {
     }
@@ -60,5 +70,21 @@ public class Photo {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public boolean isPublicPhoto() {
+        return publicPhoto;
+    }
+
+    public void setPublicPhoto(boolean publicPhoto) {
+        this.publicPhoto = publicPhoto;
+    }
+
+    public int getSleepTime() {
+        return sleepTime;
+    }
+
+    public void setSleepTime(int sleepTime) {
+        this.sleepTime = sleepTime;
     }
 }
