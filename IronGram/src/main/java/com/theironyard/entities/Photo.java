@@ -1,5 +1,8 @@
 package com.theironyard.entities;
 
+import javafx.beans.DefaultProperty;
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 
 /**
@@ -13,13 +16,19 @@ public class Photo {
     private int id;
 
     @ManyToOne
-    User sender;
+    private User sender;
 
     @ManyToOne
-    User recipient;
+    private User recipient;
 
     @Column(nullable = false)
-    String filename;
+    private String filename;
+
+    @Column(nullable = false)
+    private boolean photoPublic;
+
+    @Column(nullable = false)
+    private long lifeDuration;
 
     public Photo() {
     }
@@ -60,5 +69,21 @@ public class Photo {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public boolean isPhotoPublic() {
+        return photoPublic;
+    }
+
+    public void setPhotoPublic(boolean photoPublic) {
+        this.photoPublic = photoPublic;
+    }
+
+    public long getLifeDuration() {
+        return lifeDuration;
+    }
+
+    public void setLifeDuration(long lifeDuration) {
+        this.lifeDuration = lifeDuration;
     }
 }
