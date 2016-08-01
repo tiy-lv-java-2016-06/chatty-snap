@@ -11,6 +11,7 @@
     <button type="submit">Login</button>
 </form>
 
+<h1 id="salute"></h1>
 <form action="/logout" method="post" id="logout" hidden>
     <button type="submit">Logout</button>
 </form>
@@ -18,10 +19,17 @@
 <form action="/upload" method="post" enctype="multipart/form-data" id="upload" hidden>
     <input type="text" placeholder="Receiver Name" name="receiverName"/>
     <input type="file" name="photo">
+    <input type="number" placeholder="File Duration in seconds" name="fileDuration"/>
+    <input type="checkbox" name="makePrivate" value="private"/>Make Photo Private<br>
     <button type="submit">Upload!</button>
 </form>
 
+
+<h2 class="title" hidden>Photos Sent to You:</h2>
 <div id="photos"></div>
+
+<h2 class="title" hidden>Your Public Photos:</h2>
+<div id="publicPhotos"></div>
 
 <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 <script src="main.js"></script>
