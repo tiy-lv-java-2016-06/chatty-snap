@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface PhotoRepository extends JpaRepository<Photo, Integer>{
     List<Photo> findByRecipientOrderByIdAsc(User user);
+    List<Photo> findBySenderAndPublicPhotoTrue(User user);
+    Photo findByRecipient(User user);
 }
